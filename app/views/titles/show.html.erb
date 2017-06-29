@@ -1,0 +1,27 @@
+<div class="container-fluid" style="padding-top:40px;">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <h3 style="text-align: center">Show Relationship</h3>
+      <div class="form-group">
+        <label>Title Name:</label>
+        <p><%= @title.name %></p>
+      </div>
+      <div class="form-group">
+        <label>Title type:</label>
+        <p><%= @title.title_type %></p>
+      </div>
+      <div class="form-group">
+        <label>Year:</label>
+        <p><%= @title.year %></p>
+      </div>
+      <div class="form-group">
+        <label>Description:</label>
+        <p><%= @title.description %></p>
+      </div>
+      <div class="form-group">
+        <%= link_to "Back to list", titles_url %><br>
+        <%= link_to "Back to Create title", new_title_url %>
+      </div>
+    </div>
+  </div>
+</div>

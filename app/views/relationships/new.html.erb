@@ -1,0 +1,42 @@
+<%= javascript_include_tag "selectpicker" %>
+<div class="container-fluid" style="padding-top:40px;">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <h3 style="text-align: center">Create New Relationship</h3>
+      <%= form_for @relationship, url: {action: "create"} do |f| %>
+          <div class="form-group">
+            <%= f.label :name, for: 'name' %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label "Relationship Type", for: 'relationship_type' %>
+            <%= f.text_field :relationship_type, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label "Select First Title", for: 'select-first-title' %>
+            <%= f.select :influence_id, options_for_select(@titles), {include_blank: false}, class: 'selectpicker form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label "Select Second Title", for: 'select-second-title' %>
+            <%= f.select :influenced_id, options_for_select(@titles), {include_blank: false}, class: 'selectpicker form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :description, for: 'description' %>
+            <%= f.text_field :description, class: 'form-control' %>
+          </div>
+          <% if @relationship.errors.any? %>
+              <% @relationship.errors.full_messages.each do |error| %>
+                  <p class="alert alert-danger"><%= error %></p>
+              <% end %>
+          <% end %>
+          <% unless flash[:alert].blank? %>
+              <p class="alert alert-danger"><%= flash[:alert] %></p>
+          <% end %>
+          <%= f.submit "Create", class: 'btn btn-primary' %>
+      <% end %>
+      <div class="form-group">
+        <%= link_to "Go to Create Title", new_title_url %><br>
+      </div>
+    </div>
+  </div>
+</div>

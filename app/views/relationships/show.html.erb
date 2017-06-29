@@ -1,0 +1,30 @@
+<div class="container-fluid" style="padding-top:40px;">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <h3 style="text-align: center">Show Relationship</h3>
+      <div class="form-group">
+        <label>Relationship Title:</label>
+        <p><%= @relationship.name %></p>
+      </div>
+      <div class="form-group">
+        <label>Relationship Type:</label>
+        <p><%= @relationship.relationship_type %></p>
+      </div>
+      <div class="form-group">
+        <label>Related titles</label>
+        <p>
+          <%= @first_title.name %>
+          <%= @second_title.name %>
+        </p>
+      </div>
+      <div class="form-group">
+        <label>Relationship Description:</label>
+        <p><%= @relationship.description %></p>
+      </div>
+      <div class="form-group">
+        <%= link_to "Go to Create Title", new_title_url %><br>
+        <%= link_to "Back to Create Relationship", new_relationship_url %>
+      </div>
+    </div>
+  </div>
+</div>

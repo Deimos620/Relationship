@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  influence_id: 1
+  influenced_id: 1
+  type: 
+  description: MyText
+
+two:
+  name: 
+  influence_id: 1
+  influenced_id: 1
+  type: 
+  description: MyText

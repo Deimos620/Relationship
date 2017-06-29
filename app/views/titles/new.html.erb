@@ -1,0 +1,35 @@
+<div class="container-fluid" style="padding-top:40px;">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <h3 style="text-align: center">Create New Title</h3>
+            <%= form_for @title, url: {action: "create"} do |f| %>
+                <div class="form-group">
+                    <%= f.label :name, for: 'name' %>
+                    <%= f.text_field :name, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :year, for: 'year' %>
+                    <%= f.text_field :year, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label "Type", for: 'type' %>
+                    <%= f.text_field :title_type, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :description, for: 'description' %>
+                    <%= f.text_field :description, class: 'form-control' %>
+                </div>
+                <% if @title.errors.any? %>
+                    <% @title.errors.full_messages.each do |error| %>
+                        <p class="alert alert-danger"><%= error %></p>
+                    <% end %>
+                <% end %>
+                <%= f.submit "Create", class: 'btn btn-primary' %>
+            <% end %>
+            <div class="form-group">
+              <%= link_to "Go to Create Relationship", new_relationship_url %><br>
+              <%= link_to "Go to title list", titles_url %>
+            </div>
+        </div>
+    </div>
+</div>
