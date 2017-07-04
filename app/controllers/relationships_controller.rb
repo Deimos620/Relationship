@@ -19,8 +19,8 @@ class RelationshipsController < ApplicationController
 
     if first_title.year.get_digit_length == 4
       if second_title.year.get_digit_length == 4
-         @relationship.influence_id = (first_title.year > second_title.year)? first_title.id : second_title.id
-         @relationship.influenced_id = (first_title.year > second_title.year)? second_title.id : first_title.id
+         @relationship.influence_id = (first_title.year < second_title.year)? first_title.id : second_title.id
+         @relationship.influenced_id = (first_title.year >= second_title.year)? first_title.id : second_title.id
       else
          @relationship.influence_id = first_title.id
          @relationship.influenced_id = second_title.id
