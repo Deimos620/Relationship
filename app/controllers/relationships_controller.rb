@@ -17,8 +17,8 @@ class RelationshipsController < ApplicationController
       redirect_to new_relationship_url and return
     end
 
-    if first_title.year && first_title.year.get_digit_length == RELATIONSHIP_YEAR_DIGIT_LENGTH
-      if second_title.year && second_title.year.get_digit_length == RELATIONSHIP_YEAR_DIGIT_LENGTH
+    if first_title.year && first_title.year != 0 && first_title.year.get_digit_length == RELATIONSHIP_YEAR_DIGIT_LENGTH
+      if second_title.year && second_title.year != 0 && second_title.year.get_digit_length == RELATIONSHIP_YEAR_DIGIT_LENGTH
          @relationship.influence_id = (first_title.year < second_title.year)? first_title.id : second_title.id
          @relationship.influenced_id = (first_title.year >= second_title.year)? first_title.id : second_title.id
       else
@@ -26,7 +26,7 @@ class RelationshipsController < ApplicationController
          @relationship.influenced_id = second_title.id
       end
     else
-      if second_title.year && second_title.year.get_digit_length == RELATIONSHIP_YEAR_DIGIT_LENGTH
+      if second_title.year && second_title.year !=0 && second_title.year.get_digit_length == RELATIONSHIP_YEAR_DIGIT_LENGTH
         @relationship.influence_id = second_title.id
         @relationship.influenced_id = first_title.id
       else
